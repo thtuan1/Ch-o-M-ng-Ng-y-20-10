@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chúc mừng 20/10 💐</title>
+<link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+    font-family:"Mali",cursive;
+    height:100vh;
+    overflow:hidden;
+    background: linear-gradient(135deg,#fff0f5,#ffe4e1);
+    position: relative;
+}
+.center-message{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background: rgba(255,255,255,0.9);
+    padding:35px 50px;
+    border-radius:30px;
+    text-align:center;
+    color:#c2185b;
+    font-size:1.5rem;
+    font-weight:500;
+    box-shadow:0 15px 50px rgba(216,27,96,0.3);
+    backdrop-filter:blur(10px);
+    z-index:10;
+    animation:pulse 3s ease-in-out infinite;
+}
+@keyframes pulse{
+    0%,100%{transform:translate(-50%,-50%) scale(1);}
+    50%{transform:translate(-50%,-50%) scale(1.05);}
+}
+.center-message strong{
+    display:block;
+    font-size:2rem;
+    margin-bottom:10px;
+    font-weight:700;
+    background: linear-gradient(45deg,#d81b60,#f06292,#d81b60);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation: gradient 3s ease infinite;
+}
+@keyframes gradient{
+    0%,100%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+}
+.center-message button{
+    margin-top:15px;
+    background: linear-gradient(135deg,#d81b60,#f06292);
+    border:none;
+    color:#fff;
+    padding:10px 25px;
+    border-radius:20px;
+    cursor:pointer;
+    font-weight:600;
+    box-shadow:0 6px 20px rgba(216,27,96,0.4);
+    transition:all .3s;
+}
+.center-message button:hover{
+    transform:translateY(-3px);
+    background:linear-gradient(135deg,#ad1457,#e91e63);
+}
+.center-gif{
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:150px;
+    max-width:40vw;
+    z-index:10;
+    pointer-events:none;
+}
+.overlay{
+    position:fixed;
+    top:0;left:0;
+    width:100vw;height:100vh;
+    background:rgba(0,0,0,0.5);
+    backdrop-filter:blur(5px);
+    display:none;
+    z-index:99;
+}
+.overlay.active{display:block;}
+.popup{
+    position:fixed;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%) scale(0.8);
+    background: linear-gradient(135deg,#ffffff 0%,#fff0f5 100%);
+    border-radius:25px;
+    padding:30px;
+    text-align:center;
+    z-index:100;
+    max-width:400px;
+    width:90%;
+    display:none;
+    animation: popupShow 0.5s cubic-bezier(0.68,-0.55,0.265,1.55) forwards;
+    border:3px solid rgba(255,255,255,0.8);
+}
+@keyframes popupShow{
+    from{opacity:0;transform:translate(-50%,-50%) scale(0.5) rotate(-5deg);}
+    to{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(0deg);}
+}
+.popup img{
+    max-width:100%;
+    border-radius:15px;
+    margin-bottom:15px;
+    border:3px solid white;
+}
+.popup p{
+    font-size:1.1rem;
+    color:#d81b60;
+    line-height:1.5;
+    font-weight:500;
+    margin-bottom:15px;
+}
+.falling-letter{
+    position:absolute;
+    top:-80px;
+    width:50px;
+    height:auto;
+    cursor:pointer;
+    user-select:none;
+    animation:fall linear;
+    animation-duration:8s;
+    z-index:2;
+    filter:drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+}
+@keyframes fall{
+    0%{transform:translateY(0) rotate(0deg);opacity:1;}
+    25%{transform:translateY(20vh) rotate(-10deg);}
+    50%{transform:translateY(50vh) rotate(15deg);}
+    75%{transform:translateY(75vh) rotate(-8deg);}
+    100%{transform:translateY(100vh) rotate(0deg);opacity:0;}
+}
+.letter-clicked{
+    animation:letterClick 0.6s ease-out forwards !important;
+}
+@keyframes letterClick{
+    0%{transform:scale(1) rotate(0deg);}
+    50%{transform:scale(1.3) rotate(360deg);}
+    100%{transform:scale(0) rotate(720deg);}
+}
+.heart{
+    position:absolute;
+    transform:translate(-50%,-50%);
+    animation:explode 2s ease-out forwards;
+    pointer-events:none;
+}
+@keyframes explode{
+    0%{transform:translate(-50%,-50%) translate(0,0);opacity:1;}
+    100%{transform:translate(-50%,-50%) translate(var(--dx),var(--dy)) scale(1.5);opacity:0;}
+}
+</style>
+</head>
+<body>
+<iframe id="ytplayer"
+  src="https://www.youtube.com/embed/b2SwWDnYetE?autoplay=1&loop=1&playlist=b2SwWDnYetE&controls=0&rel=0&modestbranding=1"
+  allow="autoplay; encrypted-media"
+  style="position:fixed; left:-9999px; width:1px; height:1px; border:0;"
+  sandbox="allow-same-origin allow-scripts allow-presentation allow-popups"
+></iframe>
+
+<div class="center-message">
+    <strong>Chúc mừng 20/10</strong>
+    <span id="centerText">Ngày Phụ nữ Việt Nam<br>Vy mong bạn luôn rạng rỡ như những bó hoa!</span><br>
+    <button id="receiveBtn">Nhận lời chúc 💌</button>
+</div>
+
+<img src="./assets/mewmew.gif" class="center-gif" />
+
+<div class="popup" id="popup">
+    <img id="popupImage" src="" alt="Lời chúc">
+    <p id="popupMessage">Lời chúc ở đây</p>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<audio id="player" src="./assets/a.mp3"></audio>
+
+<script>
+const messages=[
+    {img:"https://i.pinimg.com/736x/45/9a/ac/459aac9d9c4a45b6d387d418120ee56c.jpg",text:"Bạn sẽ không vì ai mà hóa trang thành hoa hồng. Mà bạn sẽ trở thành hướng dương của riêng mình."},
+    {img:"https://i.pinimg.com/736x/3f/0d/01/3f0d01f8aaa206718aeda1dc84a8e183.jpg",text:"Bạn rất đẹp khi bạn cười, vì vậy hãy cười thật nhiều."},
+    {img:"https://i.pinimg.com/736x/c5/54/52/c55452d82eb532a2da5ea94ff30d7ab6.jpg",text:"Cảm ơn bạn vì đã luôn mạnh mẽ và tuyệt vời như thế!"},
+    {img:"https://i.pinimg.com/736x/31/59/02/31590280d5a944cd465378257efff2f4.jpg",text:"Chúc bạn một ngày 20/10 thật hạnh phúc và trọn vẹn!"},
+    {img:"https://i.pinimg.com/1200x/75/7d/94/757d94dae5583da69dec8b9ace58ce64.jpg",text:"Bạn là món quà tuyệt vời nhất mà cuộc sống mang lại!"}
+];
+
+const letterImages=["https://i.pinimg.com/1200x/d6/10/fe/d610fe2f0442d88cad0280e850a94f77.jpg","./https://i.pinimg.com/1200x/af/af/d5/afafd53c089aac6d0c6f744eeabc2a89.jpg","https://i.pinimg.com/1200x/b4/98/93/b49893b92fc615215765015424e6ed3d.jpg","https://i.pinimg.com/736x/4a/cd/6b/4acd6b6a7997a0699ad63456d7a394dc.jpg","https://i.pinimg.com/1200x/e6/47/f6/e647f61950fb6d3b7ab3d0c40b7d534e.jpg","https://i.pinimg.com/736x/3f/a3/03/3fa30322e450b78f7dd9d675b2c7aade.jpg"];
+let currentIndex=0;
+
+const popup=document.getElementById("popup");
+const overlay=document.getElementById("overlay");
+const popupImage=document.getElementById("popupImage");
+const popupMessage=document.getElementById("popupMessage");
+const centerText=document.getElementById("centerText");
+const receiveBtn=document.getElementById("receiveBtn");
+
+function createHeartExplosion(x,y){
+    const hearts=['💗'];
+    const numHearts=12;
+    for(let i=0;i<numHearts;i++){
+        const heart=document.createElement('div');
+        heart.classList.add('heart');
+        heart.textContent=hearts[Math.floor(Math.random()*hearts.length)];
+        const angle=(Math.PI*2/numHearts)*i;
+        const distance=Math.random()*80+40;
+        heart.style.left=x+'px';
+        heart.style.top=y+'px';
+        heart.style.setProperty('--dx',Math.cos(angle)*distance+'px');
+        heart.style.setProperty('--dy',Math.sin(angle)*distance+'px');
+        heart.style.fontSize=(Math.random()*10+20)+'px';
+        document.body.appendChild(heart);
+        setTimeout(()=>heart.remove(),2000);
+    }
+}
+
+function createFallingLetter(){
+    const letter=document.createElement("img");
+    const randomImage=letterImages[Math.floor(Math.random()*letterImages.length)];
+    letter.src=randomImage;
+    letter.classList.add("falling-letter");
+    letter.style.left=Math.random()*(window.innerWidth-50)+"px";
+    letter.addEventListener("click",(e)=>{
+        createHeartExplosion(e.clientX,e.clientY);
+        letter.classList.add('letter-clicked');
+        setTimeout(()=>showPopup(),300);
+    });
+    document.body.appendChild(letter);
+    setTimeout(()=>letter.remove(),8000);
+}
+
+function showPopup(){
+    const message=messages[currentIndex];
+    popupImage.src=message.img;
+    popupMessage.textContent=message.text;
+    popup.style.display="block";
+    overlay.classList.add("active");
+    popup.dataset.currentMessage=message.text;
+    currentIndex=(currentIndex+1)%messages.length;
+}
+
+function closePopup(){
+    popup.style.display="none";
+    overlay.classList.remove("active");
+    if(popup.dataset.currentMessage){
+        centerText.innerHTML=popup.dataset.currentMessage;
+    }
+}
+
+receiveBtn.addEventListener("click",showPopup);
+overlay.addEventListener("click",closePopup);
+
+document.body.addEventListener("click",function(){
+    const player=document.getElementById("player");
+    if(player.paused)player.play();
+});
+
+setInterval(createFallingLetter,1000);
+</script>
+
+</body>
+</html>
